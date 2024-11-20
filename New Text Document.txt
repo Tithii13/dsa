@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+#define MAX 100
+
+struct kq
+{
+int data[MAX];
+int front[MAX];
+int rear[MAX];
+int next[MAX];
+
+};
+
+void init(struct kq* q,int k)
+{
+q->free=0;
+for(int i=0;i<k;i++)
+{
+q->front[i]=-1;
+q->rear[i]=-1;
+}
+}
+
+int isemp(struct kq* q,int qn)
+{
+return q->front[qn]==-1;
+}
+
+/*
+int isfull(struct kq* q,int qn)
+{
+return q->rear[qn]==MAX-1
+}
+*/
+
+void enqueue(struct kq* q,int x,int qn)
+{
+if(q->rear[qn]==MAX-1)
+{
+printf("OVERFLOW\n");
+return n;
+}
+if(isEmpty(q,qn))
+{
+q->front=0;
+q->rear=0;
+}
+else
+{
+q->rear[qn]++;
+}
+q->data[q->rear[qn]]=x;
+printf("Enqueued %d to Queue number %d \n",x,qn);
+}
